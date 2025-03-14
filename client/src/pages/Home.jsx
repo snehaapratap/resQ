@@ -17,13 +17,11 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>YOUR HEALTH, ONE SCAN AWAY!</h1>
-            <div className="progress-bar">
-              <div className="progress-dot active"></div>
-              <div className="progress-line"></div>
-              <div className="progress-dot"></div>
-              <div className="progress-line"></div>
-              <div className="progress-dot"></div>
+            <h1>YOUR HEALTH,<br />ONE SCAN AWAY!</h1>
+            <div className="dots-nav">
+              <div className="dot active"></div>
+              <div className="dot"></div>
+              <div className="dot"></div>
             </div>
             <p>
               When every second counts, ResQ provides instant access to your critical medical information through a simple QR code scan.
@@ -32,7 +30,7 @@ const Home = () => {
               <div className="stats-card">
                 <AccessTimeIcon 
                   className="stats-card-icon"
-                  sx={{ fontSize: 48, color: 'var(--primary-blue)' }} 
+                  sx={{ fontSize: 24, color: 'var(--medical-blue)' }} 
                 />
                 <div className="stat-number">30</div>
                 <div className="stat-label">SECONDS TO ACCESS CRITICAL INFO</div>
@@ -40,7 +38,7 @@ const Home = () => {
               <div className="stats-card">
                 <LocalHospitalIcon 
                   className="stats-card-icon"
-                  sx={{ fontSize: 48, color: 'var(--primary-blue)' }} 
+                  sx={{ fontSize: 24, color: 'var(--medical-blue)' }} 
                 />
                 <div className="stat-number">24/7</div>
                 <div className="stat-label">EMERGENCY ASSISTANCE</div>

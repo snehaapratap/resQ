@@ -14,6 +14,9 @@
   --accent-blue: #BBE3FA;
   --accent-green: #E8F5E9;
   --black: #000000;
+  --medical-blue: #2196F3;
+  --light-medical-blue: #BBE3FA;
+  --background-white: #FFFFFF;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -139,13 +142,15 @@ button:focus-visible {
 
 /* Header Styles */
 .header {
-  background: var(--white);
-  padding: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 8px rgba(33, 150, 243, 0.05);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  height: 48px; /* Even thinner height */
 }
 
 .header-content {
@@ -154,76 +159,189 @@ button:focus-visible {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0.3rem 2rem; /* Reduced vertical padding */
+  height: 100%;
 }
 
+/* Logo Styling */
 .logo {
-  height: 2.5rem;
-  object-fit: contain;
+  font-family: 'Righteous', sans-serif;
+  font-size: 1.4rem; /* Smaller font size */
+  color: var(--medical-blue);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, var(--medical-blue), #64B5F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+.logo::before {
+  content: '⚕';
+  font-size: 1.1rem;
+  margin-right: 2px;
+  background: inherit;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navigation Links */
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.2rem;
   align-items: center;
+  height: 100%;
 }
 
 .nav-link {
-  color: var(--text-dark);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #666 !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  font-size: 0.85rem !important;
+  padding: 0.3rem 0.6rem !important;
 }
 
 .nav-link:hover {
-  color: var(--primary-blue);
+  color: var(--medical-blue) !important;
+}
+
+/* Login/Register Button */
+.btn-black {
+  background: rgba(237, 247, 255, 0.8) !important;
+  color: var(--medical-blue) !important;
+  padding: 0.3rem 1.2rem !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.3px !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important;
+  height: 32px !important; /* Smaller height */
+  min-width: auto !important;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1) !important;
+}
+
+.btn-black:hover {
+  background: var(--medical-blue) !important;
+  color: white !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 12px rgba(33, 150, 243, 0.2) !important;
+}
+
+/* Scrolled State */
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 12px rgba(33, 150, 243, 0.06);
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 44px; /* Even thinner on mobile */
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .btn-black {
+    padding: 0.25rem 1rem !important;
+    font-size: 0.8rem !important;
+    height: 30px !important;
+  }
 }
 
 /* Hero Section */
 .hero-section {
-  padding: 8rem 0 4rem;
-  background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+  padding: 4rem 0;
+  background: var(--background-white);
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 48px;
+  position: relative;
 }
 
+/* Hero Content */
 .hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  margin-left: 130px;
 }
 
+/* Hero Text */
 .hero-text {
-  max-width: 540px;
+  max-width: 800px;
 }
 
-.hero-text h1 {
-  font-size: 3.5rem;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  color: var(--text-dark);
-}
-
-.hero-text p {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: var(--text-light);
-  margin-bottom: 2rem;
-}
-
+/* Logo/Image - Now positioned absolutely */
 .hero-image {
-  position: relative;
-  height: 100%;
-  min-height: 400px;
+  position: absolute;
+  top: 4rem;
+  right: 8rem;
+  width: 350px;
+  height: auto;
 }
 
-.hero-image img {
+.main-logo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 24px;
+  height: auto;
+}
+
+/* Stats Cards */
+.stats-cards-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.stats-card {
+  min-width: 550px;
+  min-height: 180px;
+  flex: 1;
+  background: linear-gradient(
+    to bottom right,
+    rgba(237, 247, 255, 0.9),
+    rgba(224, 242, 254, 0.5)
+  );
+  border-radius: 16px;
+  padding: 2.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.08);
+}
+
+.stat-number {
+  font-size: 5.5rem;
+  font-weight: 700;
+  color: var(--medical-blue);
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--medical-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+.stats-card-icon {
+  position: absolute !important;
+  top: 1.5rem !important;
+  right: 1.5rem !important;
+  opacity: 0.7 !important;
+  color: var(--medical-blue) !important;
 }
 
 /* Feature Cards */
@@ -267,29 +385,37 @@ button:focus-visible {
   line-height: 1.6;
 }
 
-/* Stats Section */
-.stats-section {
-  background: var(--white);
-  padding: 4rem 0;
+/* Medical Cross Icon */
+.medical-icon {
+  width: 300px;
+  height: auto;
+  margin-left: auto;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
+/* Update media query for mobile responsiveness */
+@media (max-width: 640px) {
+  .stats-cards-container {
+    flex-direction: column;  /* Stack cards on mobile */
+  }
 }
 
-.stat-item h3 {
-  font-size: 2.5rem;
-  color: var(--primary-blue);
-  margin-bottom: 0.5rem;
+/* Update the hero text colors to match */
+.hero-text p {
+  font-size: 1.5rem;
+  color: var(--medical-blue);
+  opacity: 0.7;
+  margin: 2rem 0 3rem 0;
+  max-width: 700px;
+  line-height: 1.5;
 }
 
-.stat-item p {
-  color: var(--text-light);
-  font-size: 1.1rem;
+/* Add subtle hover effect */
+.stats-card:hover {
+  background: linear-gradient(
+    to bottom right,
+    rgba(237, 247, 255, 0.95),
+    rgba(224, 242, 254, 0.6)
+  );
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
